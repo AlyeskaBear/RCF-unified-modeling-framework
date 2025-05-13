@@ -1,5 +1,5 @@
 # Model Setup
-Consider a standard linear regression model for data $d_k$ = \{ $y_{i,k},x_{i1,k},\dots, x_{ip,k} $\} $_{i=1}^{n}$ defined by  
+Consider a standard OLS linear regression model for data $d_k$ = \{ $y_{i,k},x_{i1,k},\dots, x_{ip,k} $\} $_{i=1}^{n}$ defined by  
 
 $$y_{i,k}=\beta_{0,k}+\beta_{1,k}x_{i1,k}+\dots+\beta_{p,k}x_{ip,k}+\varepsilon_{i,k} \qquad (1)$$ 
  
@@ -29,7 +29,7 @@ where
 
 $$t(\beta_{0,k})=\frac{\beta_{0,k}-\hat\beta_{0,k}}{\text{SE}(\hat\beta_{0,k})}, \qquad v=n-p-1, \qquad c=\frac{\Gamma(\frac{v+1}{2})}{\Gamma(\frac{v}{2})\sqrt{\pi v}\text{SE}(\hat\beta_{0,k})}.$$
 
-Here, $t(\beta_{0,k})$ is the usual *t*-statistic and $\text{SE}(\hat\beta_{0,k})$ is the standard error of $\hat\beta_{0,k}$. Thus, $L(\beta_{0,k}|d_k)$ is (up to the constant *c*) the Student-*t* distribution of $\beta_{0,k}$ with *v* degrees of freedom centered at the OLS estimate $\hat\beta_{0,k}$ with scale $\text{SE}(\hat\beta_{0,k})$.
+Here, $t(\beta_{0,k})$ is the usual *t*-statistic and $\text{SE}(\hat\beta_{0,k})$ is the standard error of the OLS estimate $\hat\beta_{0,k}$. Thus, $L(\beta_{0,k}|d_k)$ is (up to the constant *c*) the Student-*t* distribution of $\beta_{0,k}$ with *v* degrees of freedom centered at $\hat\beta_{0,k}$ with scale $\text{SE}(\hat\beta_{0,k})$.
 
 
 With a flat prior on the other regression coefficients \beta_{1,k},\dots,\beta_{p,k} and on $\sigma^{2}$, the posterior inference for $\beta_{0,k}$ follows standard results. In particular, if assigning $\beta_{0,k}$ the continuous, unrestricted $N(0, \tau^{2})$ prior, the marginal posterior for $\beta_{0,k}$ (after integrating out the other coefficients and $\sigma^{2}$) is a Student-*t* distribution centered at the ordinary least squares (OLS) estimate. Specifically, if $\hat\beta_{0,k}$ is the OLS estimate of $\beta_{0,k}$ and $\text{SE}(\hat\beta_{0,k})$ its standard error, Student-*t* distribution has
