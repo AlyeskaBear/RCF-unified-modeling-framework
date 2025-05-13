@@ -13,7 +13,7 @@ For $\beta_{0,k}$, we use a mixed one-sided prior that encodes a belief about it
 
 $$\pi(\beta_{0,k})=\pi_\textrm{null}2\tau^{-1}\phi(\beta_{0,k}&#x2215;\tau)&Iopf;(\beta_{0,k}\leq 0)+(1-\pi_\textrm{null})2\tau^{-1}\phi(\beta_{0,k}&#x2215;\tau)&Iopf;(\beta_{0,k}> 0),$$
 
-where $\phi(\cdot)$ is the standard normal distribution (thus, $2\tau^{-1}\phi(\beta_{0,k}&#x2215;\tau)$ is a half-normal distribution on either side of 0 and $&Iopf;(\cdot)$ is an indicator function equal to one if the condition is satisfied and zero otherwise. The hyperparameter $0\leq \pi_\textrm{null} \leq 1$ is the prior probability of $&#x1D4DC;_ {\textrm{null},k}$, and $\tau>0$ is a scale parameter for $\beta_{0,k}$. This prior is essentially a $N(0, \tau^{2})$ distribution for $\beta_{0,k}$ truncated to negative or positive values, with a mixing weight $\pi_\textrm{null}$ favoring the negative side and $1-\pi_\textrm{null}$ the positive side. 
+where $\phi(\cdot)$ is the standard normal distribution (thus, $2\tau^{-1}\phi(\beta_{0,k}&#x2215;\tau)$ is a half-normal distribution on either side of zero) and $&Iopf;(\cdot)$ is an indicator function equal to one if the condition is satisfied and zero otherwise. The hyperparameter $0\leq \pi_\textrm{null} \leq 1$ is the prior probability of $&#x1D4DC;_ {\textrm{null},k}$, and $\tau>0$ is a scale parameter for $\beta_{0,k}$. This prior is essentially a $N(0, \tau^{2})$ distribution for $\beta_{0,k}$ truncated to negative or positive values, with a mixing weight $\pi_\textrm{null}$ favoring the negative side and $1-\pi_\textrm{null}$ the positive side. 
 
 # Posterior Inference Approach
 
