@@ -31,12 +31,14 @@ $$t(\beta_{0,k})=\frac{\beta_{0,k}-\hat\beta_{0,k}}{\text{SE}(\hat\beta_{0,k})},
 
 Here, $t(\beta_{0,k})$ is the usual *t*-statistic and $\text{SE}(\hat\beta_{0,k})$ is the standard error of the OLS estimate $\hat\beta_{0,k}$. Consequently, $L(\beta_{0,k}|d_k)$ is (up to the constant *c*) the Student *t*-distribution of $\beta_{0,k}$ with $\nu$ degrees of freedom, centered at $\hat\beta_{0,k}$ and having scale $\text{SE}(\hat\beta_{0,k})$.
 
-Then, we compute the likelihood under each sub-model, $L(&#x1D4DC;_ {\textrm{null},k}|d_k)$ and $L(&#x1D4DC;_ {\textrm{alt},k}|d_k)$, by integrating $L(\beta_{0,k}|d_k)$ over the truncated prior on the restricted domain of $\beta_{0,k}$ for each model, respectively,
+Then, we compute the likelihood under each sub-model, $L(&#x1D4DC;_ {\textrm{null},k}|d_k)$ and $L(&#x1D4DC;_ {\textrm{alt},k}|d_k)$, by integrating $L(\beta_{0,k}|d_k)$ over the half-normal prior on the restricted domain of $\beta_{0,k}$ for each model, respectively,
 
-$$L(&#x1D4DC;_ {\textrm{null},k}|d_k) = \pi_\textrm{null}\int_{-\infty}^{0} L(\beta_{0,k}|d_k)2\tau^{-1}\phi(\beta_{0,k}&#x2215;\tau)d\beta_{0}$$
+$$L(&#x1D4DC;_ {\textrm{null},k}|d_k) = \int_{-\infty}^{0} L(\beta_{0,k}|d_k)2\tau^{-1}\phi(\beta_{0,k}&#x2215;\tau)d\beta_{0}$$
 
 and
 
-<p align="center">$$L(&#x1D4DC;_ {\textrm{alt},k}|d_k) = (1-\pi_\textrm{null})\int_{0}^{\infty} L(\beta_{0,k}|d_k)2\tau^{-1}\phi(\beta_{0,k}&#x2215;\tau)d\beta_{0}$$.</p>
+<p align="center">$$L(&#x1D4DC;_ {\textrm{alt},k}|d_k) = \int_{0}^{\infty} L(\beta_{0,k}|d_k)2\tau^{-1}\phi(\beta_{0,k}&#x2215;\tau)d\beta_{0}$$.</p>
 
-Given the prior odds $\pi_0:(1-\pi_0)$, the posterior probability of the null is:
+Given the prior null probability $\pi_\textrm(null)$, the posterior probability of the null is 
+
+$$\text{Pr}(&#x1D4DC;_ {\textrm{null},k}|d_k)=\frac{}{}$$
