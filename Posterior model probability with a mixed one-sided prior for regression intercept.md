@@ -39,6 +39,6 @@ and
 
 <p align="center">$$L(&#x1D4DC;_ {\textrm{alt},k}|d_k) = \int_{0}^{\infty} L(\beta_{0,k}|d_k)2\tau^{-1}\phi(\beta_{0,k}&#x2215;\tau)d\beta_{0}$$.</p>
 
-Given the prior null probability $\pi_\textrm(null)$, the posterior probability of the null is 
+Given the prior null probability $\pi_\textrm{null}$, the posterior probability of the null is 
 
-$$\text{Pr}(&#x1D4DC;_ {\textrm{null},k}|d_k)=\frac{}{}$$
+$$\text{Pr}(&#x1D4DC;_ {\textrm{null},k}|d_k)=\frac{\pi_\textrm{null}L(&#x1D4DC;_ {\textrm{null},k}|d_k)}{\pi_\textrm{null}L(&#x1D4DC;_ {\textrm{null},k}|d_k)+(1-\pi_\textrm{null})L(&#x1D4DC;_ {\textrm{alt},k}|d_k)}$$
