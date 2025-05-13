@@ -27,9 +27,9 @@ $$L(\beta_{0,k}|d_k)=c[1+t^2(\beta_{0,k})/v]^{-\frac{v+1}{2}}$$
 
 where 
 
-$$t(\beta_{0,k})=\frac{\beta_{0,k}-\hat\beta_{0,k}}{\text{SE}(\hat\beta_{0,k})}, \qquad v=n-p-1, \qquad c=\frac{\Gamma(\frac{v+1}{2})}{\Gamma(\frac{v}{2})\sqrt{\pi v}\text{SE}(\hat\beta_{0,k})}.$$
+$$t(\beta_{0,k})=\frac{\beta_{0,k}-\hat\beta_{0,k}}{\text{SE}(\hat\beta_{0,k})}, \qquad \nu=n-p-1, \qquad c=\frac{\Gamma(\frac{v+1}{2})}{\Gamma(\frac{v}{2})\sqrt{\pi v}\text{SE}(\hat\beta_{0,k})}.$$
 
-Here, $t(\beta_{0,k})$ is the usual *t*-statistic and $\text{SE}(\hat\beta_{0,k})$ is the standard error of the OLS estimate $\hat\beta_{0,k}$. Thus, $L(\beta_{0,k}|d_k)$ is (up to the constant *c*) the Student-*t* distribution of $\beta_{0,k}$ with *v* degrees of freedom centered at $\hat\beta_{0,k}$ with scale $\text{SE}(\hat\beta_{0,k})$.
+Here, $t(\beta_{0,k})$ is the usual *t*-statistic and $\text{SE}(\hat\beta_{0,k})$ is the standard error of the OLS estimate $\hat\beta_{0,k}$. Consequently, $L(\beta_{0,k}|d_k)$ is (up to the constant *c*) the Student *t*-distribution of $\beta_{0,k}$ with $\nu$ degrees of freedom, centered at $\hat\beta_{0,k}$ and having scale $\text{SE}(\hat\beta_{0,k})$.
 
 
 With a flat prior on the other regression coefficients \beta_{1,k},\dots,\beta_{p,k} and on $\sigma^{2}$, the posterior inference for $\beta_{0,k}$ follows standard results. In particular, if assigning $\beta_{0,k}$ the continuous, unrestricted $N(0, \tau^{2})$ prior, the marginal posterior for $\beta_{0,k}$ (after integrating out the other coefficients and $\sigma^{2}$) is a Student-*t* distribution centered at the ordinary least squares (OLS) estimate. Specifically, if $\hat\beta_{0,k}$ is the OLS estimate of $\beta_{0,k}$ and $\text{SE}(\hat\beta_{0,k})$ its standard error, Student-*t* distribution has
@@ -37,7 +37,10 @@ With a flat prior on the other regression coefficients \beta_{1,k},\dots,\beta_{
 - Location: $\hat\beta_{0}$ (OLS estimate).
 - Scale: $s \cdot \text{SE}(\hat\beta_{0})$, where $s^2$ is the OLS residual variance estimate.
 
-To incorporate the one-sided prior, we use a mixture updating approach: Essentially, we treat the two halves of the prior (negative vs. positive $\beta_{0,k}$) as two competing models. We compute the marginal likelihood of the data under each sub-model by integrating the likelihood times the truncated prior over the allowed domain of $\beta_{0,k}$. Let $L(\beta_{0}) = p(d_k \mid \beta_{0}, M_{\text{rest}})$ be the likelihood (with other parameters integrated out or evaluated at their posterior modes for simplicity). Then:
+Now, we compute the marginal likelihood under each sub-model, $L(&#x1D4DC;_ {\textrm{null},k}|d_k)$ and $L(&#x1D4DC;_ {\textrm{alt},k}|d_k)$ by integrating $L(\beta_{0,k}|d_k)$ over the truncated prior on the allowed domain of $\beta_{0,k}$.
+
+
+Let $L(\beta_{0}) = p(d_k \mid \beta_{0}, M_{\text{rest}})$ be the likelihood (with other parameters integrated out or evaluated at their posterior modes for simplicity). Then:
 Null model evidence ($M_{0,k}$): $E_0 = \int_{-\infty}^{0} L(\beta_{0}) \cdot \frac{2}{\tau}\varphi(\beta_{0}/\tau),d\beta_{0}$ (times $\pi_0$ if treating $\pi_0$ as prior model probability).
 Alternative model evidence ($M_{1,k}$): $E_1 = \int_{0}^{\infty} L(\beta_{0}) \cdot \frac{2}{\tau}\varphi(\beta_{0}/\tau),d\beta_{0}$ (times $(1-\pi_0)$).
 Given the prior odds $\pi_0:(1-\pi_0)$, the posterior probability of the null is:
