@@ -9,4 +9,4 @@ We place the non-informative (Jeffreys) priors on the slop coefficients $\beta_{
 
 $$\pi\left(\beta_{0,k}\right)=\pi_\textrm{null}2\tau^{-1}\phi\left(\beta_{0,k}&#x2215;\tau\right)&Iopf;\left(\beta_{0,k}\leq 0\right)+\left(1-\pi_\textrm{null}\right)2\tau^{-1}\phi\left(\beta_{0,k}&#x2215;\tau\right)&Iopf;\left(\beta_{0,k}> 0\right),$$
 
-where $\phi\left(\cdot\right)$ is the standard normal distribution, so $2\tau^{-1}\phi\left(\beta_{0,k}&#x2215;\tau\right)$ is a half-normal distribution on either side of 0. The hyperparameter $0\leq \pi_0 \leq 1$ is the prior probability of $&#x1D4DC;_ {\textrm{null},k}$, and $\tau>0$ is a scale parameter for $\beta_{0,k}$.   
+where $\phi\left(\cdot\right)$ is the standard normal distribution (thus, $2\tau^{-1}\phi\left(\beta_{0,k}&#x2215;\tau\right)$ is a half-normal distribution on either side of 0) and $&Iopf;\left(\cdot\right)$ is an indicator function equal to one if the condition is satisfied and zero otherwise. The hyperparameter $0\leq \pi_0 \leq 1$ is the prior probability of $&#x1D4DC;_ {\textrm{null},k}$, and $\tau>0$ is a scale parameter for $\beta_{0,k}$.   
