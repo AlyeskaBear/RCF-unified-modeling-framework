@@ -5,7 +5,11 @@ $$y_{i,k}=\beta_{0,k}+\beta_{1,k}x_{i1,k}+\dots+\beta_{p,k}x_{ip,k}+\varepsilon_
  
 with independent random errors $\varepsilon_{i,k} \sim N(0, \sigma^{2})$. The assumption of independent model errors is not essential for our framework as models with more sophisticated assumptions on data dependence fit into this framework straightforwardly. Under this setup, let $&#x1D4DC;_ {\textrm{null},k}$ denote the null model that restricts $\beta_{0,k} \le 0$, and $&#120028;_ {\textrm{alt},k}$ denote the alternative model that restricts $\beta_{0,k} > 0$. Our goal is to compute the posterior probability of the null model, $\textrm{Pr}\left(&#x1D4DC;_ {\textrm{null},k}|d_k\right)$, given the data $d_k$. 
 
-We place the non-informative (Jeffreys) priors on the slop coefficients $\beta_{1,k},\dots,\beta_{p,k}$ and the error variance $\sigma^{2}$, $\pi(\beta_{1:p,k},\sigma^{2}) \propto 1&#x2215;\sigma^{2}$. For $\beta_{0,k}$, we use a mixed one-sided prior that encodes a belief about its sign: 
+We place the non-informative (Jeffreys) prior on the slop coefficients $\beta_{1,k},\dots,\beta_{p,k}$ and the error variance $\sigma^{2}$
+
+$$\pi(\beta_{1:p,k},\sigma^{2}) \propto \frac{1}{\sigma^{2}}.$$
+
+For $\beta_{0,k}$, we use a mixed one-sided prior that encodes a belief about its sign: 
 
 $$\pi\left(\beta_{0,k}\right)=\pi_\textrm{null}2\tau^{-1}\phi\left(\beta_{0,k}&#x2215;\tau\right)&Iopf;\left(\beta_{0,k}\leq 0\right)+\left(1-\pi_\textrm{null}\right)2\tau^{-1}\phi\left(\beta_{0,k}&#x2215;\tau\right)&Iopf;\left(\beta_{0,k}> 0\right),$$
 
@@ -13,7 +17,7 @@ where $\phi(\cdot)$ is the standard normal distribution (thus, $2\tau^{-1}\phi(\
 
 # Posterior Inference Approach
 
-
+W
 
 With a flat prior on the other regression coefficients \beta_{1,k},\dots,\beta_{p,k} and on $\sigma^{2}$, the posterior inference for $\beta_{0,k}$ follows standard results. In particular, if assigning $\beta_{0,k}$ the continuous, unrestricted $N(0, \tau^{2})$ prior, the marginal posterior for $\beta_{0,k}$ (after integrating out the other coefficients and $\sigma^{2}$) is a Student-*t* distribution centered at the ordinary least squares (OLS) estimate. Specifically, if $\hat\beta_{0,k}$ is the OLS estimate of $\beta_{0,k}$ and $\text{SE}(\hat\beta_{0,k})$ its standard error, Student-*t* distribution has
 - Degrees of freedom: $\nu = n - (p+1)$ (residual degrees of freedom).
