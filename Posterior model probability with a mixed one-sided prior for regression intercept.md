@@ -1,5 +1,5 @@
 # Model Setup
-Consider a standard OLS linear regression model for data $d_k$ = \{ $y_{i,k},x_{i1,k},\dots, x_{ip,k} $\} $_{i=1}^{n}$ defined by  
+Consider a standard OLS regression model for data $d_k$ = \{ $y_{i,k},x_{i1,k},\dots, x_{ip,k} $\} $_{i=1}^{n}$ defined by  
 
 $$y_{i,k}=\beta_{0,k}+\beta_{1,k}x_{i1,k}+\dots+\beta_{p,k}x_{ip,k}+\varepsilon_{i,k} \qquad (1)$$ 
  
@@ -41,4 +41,4 @@ and
 
 Given the prior null probability $\pi_\textrm{null}$, the posterior probability of the null is 
 
-$$\text{Pr}(&#x1D4DC;_ {\textrm{null},k}|d_k)=\frac{\pi_\textrm{null}L(&#x1D4DC;_ {\textrm{null},k}|d_k)}{\pi_\textrm{null}L(&#x1D4DC;_ {\textrm{null},k}|d_k)+(1-\pi_\textrm{null})L(&#x1D4DC;_ {\textrm{alt},k}|d_k)}$$
+$$\text{Pr}(&#x1D4DC;_ {\textrm{null},k}|d_k)=\frac{\pi_\textrm{null}L(&#x1D4DC;_ {\textrm{null},k}|d_k)}{\pi_\textrm{null}L(&#x1D4DC;_ {\textrm{null},k}|d_k)+(1-\pi_\textrm{null})L(&#x1D4DC;_ {\textrm{alt},k}|d_k)}.$$
