@@ -28,6 +28,7 @@ X_replication <- df %>%
   filter(date >= test_start, date <= test_end) %>%
   select(Mkt_RF, SMB, HML, RMW, CMA)
 
+
 # ---- Posterior Inference ----
 log_integrate <- function(f, lower, upper, rel.tol = 1e-12) {
   ## numerically integrate exp(log f) on a log scale
@@ -36,7 +37,7 @@ log_integrate <- function(f, lower, upper, rel.tol = 1e-12) {
 }
 
 posterior_null_prob <- function(y, X, pi0 = 0.5, tau = 1) {
-  ## 1 — OLS quantities
+  ## 1 — OLS estimates
   y <- as.vector(y);   X <- as.matrix(X)
   Xd <- cbind(1, X)                    # add intercept
   n  <- nrow(Xd);     p  <- ncol(Xd) - 1
@@ -64,3 +65,119 @@ posterior_null_prob <- function(y, X, pi0 = 0.5, tau = 1) {
   return(post_M0)
 }
 
+
+## posterior null probability - original sample
+posterior_null_prob(y=y_original, 
+                    X=X_original, 
+                    pi0 = 0.5,
+                    tau=0.0041)
+## [1] 5.796415e-16
+
+## posterior null probability - replication sample
+posterior_null_prob(y=y_replication, 
+                    X=X_replication, 
+                    pi0 = 0.7,
+                    tau=0.0041)
+## [1] 0.08838085
+
+
+# ---- Sensitivity check for τ ---- 
+
+## 1. Grid of τ values
+tau_grid <- seq(from = 0.001, to = 0.005, by = 0.0001)
+
+## 2. Vector of π_null values to examine
+pi0_grid <- c(0.30, 0.50, 0.70)
+
+## 3. Evaluate Pr(M0 | data) for every (π_null, τ) pair
+sensitivity_tau <- do.call(
+  rbind,
+  lapply(pi0_grid, function(pp) {
+    post_vals <- sapply(
+      tau_grid,
+      function(tt)
+        posterior_null_prob(
+          y   = y_replication,
+          X   = X_replication,
+          pi0 = pp,
+          tau = tt
+        )
+    )
+    data.frame(
+      tau     = tau_grid,
+      pi0     = pp,
+      post_M0 = post_vals
+    )
+  })
+)
+
+## 4. Inspect the combined data-frame
+head(sensitivity_tau)
+##      tau pi0    post_M0
+## 1 0.0010 0.3 0.03154233
+## 2 0.0011 0.3 0.02900435
+## ...
+
+## 'sensitivity_tau' now contains one row per τ–π_null combination
+## with columns: tau, pi0, post_M0
+
+## ---------------------------------------------------------------------------
+## Function :  plot_sensitivity_tau
+## Purpose  :  Overlay sensitivity curves of Pr(M0 | data) vs τ for
+##             three prior weights (π_null = 0.3, 0.5, 0.7)
+## ---------------------------------------------------------------------------
+plot_sensitivity_tau <- function(df) {
+  stopifnot(all(c("tau", "pi0", "post_M0") %in% names(df)))
+  library(ggplot2)
+  
+  ## axis breaks (ensure 2.5 % and 1 % appear)
+  pretty_y  <- scales::pretty_breaks(n = 6)(df$post_M0)
+  
+   y_breaks <- sort(unique(c(scales::pretty_breaks(n = 6)(df$post_M0),
+                           0.05, 0.025, 0.01)))
+  
+  ggplot(df, aes(x = tau, y = post_M0, colour = as.factor(pi0))) +
+    geom_line(linewidth = 0.8) +
+    ## reference lines ------------------------------------------------------
+  geom_hline(yintercept = 0.05,
+             linetype   = "dashed",
+             colour     = "black") +
+  geom_hline(yintercept = 0.025,
+             linetype   = "dashed",
+             colour     = "black") +
+    geom_hline(yintercept = 0.01,
+               linetype   = "dashed",
+               colour     = "black") +
+  ## axes -----------------------------------------------------------------
+  scale_y_continuous(
+    breaks = y_breaks,
+    labels = scales::percent_format(accuracy = 0.1),
+    expand = expansion(mult = c(0.02, 0.02))
+  ) +
+    scale_x_continuous(
+      breaks = scales::pretty_breaks(n = 6),
+      expand = expansion(mult = c(0.02, 0.02))
+    ) +
+    ## legend & labels ------------------------------------------------------
+  scale_colour_manual(
+    values = c("0.3" = "#0072B2", "0.5" = "#D55E00", "0.7" = "#009E73"),
+    name   = expression(pi[null])
+  ) +
+    labs(
+      x = expression(tau),
+      y = expression("Pr(" * M[null] * " | data)")
+    ) +
+    ## theme ----------------------------------------------------------------
+  theme_bw(base_size = 12) +
+    theme(
+      panel.border       = element_rect(colour = "black", fill = NA, linewidth = 0.8),
+      panel.grid.major.y = element_line(colour = "grey85"),
+      panel.grid.major.x = element_blank(),
+      panel.grid.minor   = element_blank(),
+      plot.title         = element_text(face = "bold"),
+      legend.position    = "right"
+    )
+}
+
+plt <- plot_sensitivity_tau(sensitivity_tau)
+print(plt)
