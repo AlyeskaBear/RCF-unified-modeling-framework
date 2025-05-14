@@ -19,9 +19,9 @@ where $\phi(\cdot)$ is the standard normal distribution <sup id="fn1"><a href="#
 
 The full likelihood function for the model (1) conditioned on the data $d_k$ is
 
-<p align="center">$$L(\beta_{0,k}, &#120631;_ {1:p,k}, \sigma^2|d_k)=(2\pi\sigma^2)^{-n&#x2215;2}\textrm{exp}[-\frac{1}{2\sigma^2}(y_{.,k}-&#119831;[\beta_{0,k}, &#120631;_ {1:p,k}])^\textrm{T}(y_{.,k}-&#119831;[\beta_{0,k}, &#120631;_ {1:p,k}])] \qquad (2)$$,</p>
+<p align="center">$$L(\beta_{0,k}, &#120631;_ {1:p,k}, \sigma^2|d_k)=(2\pi\sigma^2)^{-n&#x2215;2}\textrm{exp}[-\frac{1}{2\sigma^2}(&#x1D432;-&#119831;[\beta_{0,k}, &#120631;_ {1:p,k}])^\textrm{T}(&#x1D432;-&#119831;[\beta_{0,k}, &#120631;_ {1:p,k}])] \qquad (2)$$,</p>
 
-where &#119831;=[&#x1D7CF;, &#119833;] with &#x1D7CF; being the column of ones (to accommodate $\beta_{0,k}$) and $&#119833;$ containing the $\mathit{p}$ covariates. Integrate the likelhood function (2) with respect to $&#120631;_ {1:p,k}$ and $\sigma^2$ under the Jeffreys prior to obtain the likelihood function for $\beta_{0,k}$  
+where $&#x1D432;$ = \{ $y_{1,k},\dots, y_{n,k} $\} $^\textrm{T}$, &#119831;=[&#x1D7CF;, &#119833;] with &#x1D7CF; being the column of ones (to accommodate $\beta_{0,k}$) and $&#119833;$ containing the $\mathit{p}$ covariates. Integrate the likelhood function (2) with respect to $&#120631;_ {1:p,k}$ and $\sigma^2$ under the Jeffreys prior to obtain the likelihood function for $\beta_{0,k}$  
 
 $$L(\beta_{0,k}|d_k)=c[1+t^2(\beta_{0,k})/v]^{-\frac{v+1}{2}}$$
 
