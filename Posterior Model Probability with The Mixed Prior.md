@@ -9,7 +9,7 @@ We place the non-informative (Jeffreys) prior on the other coefficients $&#12063
 
 $$\pi(\beta_{1:p,k},\sigma^{2}) \propto \frac{1}{\sigma^{2}}.$$
 
-For $\beta_{0,k}$, we use a mixed one-sided prior that encodes a belief about its sign: 
+For $\beta_{0,k}$, we use a mixed one-sided prior that encodes a belief about its sign 
 
 $$\pi(\beta_{0,k})=\pi_\textrm{null}2\tau^{-1}\phi(\beta_{0,k}&#x2215;\tau)&Iopf;(\beta_{0,k}\leq 0)+(1-\pi_\textrm{null})2\tau^{-1}\phi(\beta_{0,k}&#x2215;\tau)&Iopf;(\beta_{0,k}> 0),$$
 
