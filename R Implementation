@@ -28,7 +28,6 @@ X_replication <- df %>%
   filter(date >= test_start, date <= test_end) %>%
   select(Mkt_RF, SMB, HML, RMW, CMA)
 
-
 # ---- Posterior Inference ----
 log_integrate <- function(f, lower, upper, rel.tol = 1e-12) {
   ## numerically integrate exp(log f) on a log scale
@@ -65,7 +64,6 @@ posterior_null_prob <- function(y, X, pi0 = 0.5, tau = 1) {
   return(post_M0)
 }
 
-
 ## posterior null probability - original sample
 posterior_null_prob(y=y_original, 
                     X=X_original, 
@@ -80,9 +78,7 @@ posterior_null_prob(y=y_replication,
                     tau=0.0041)
 ## [1] 0.08838085
 
-
 # ---- Sensitivity check for τ ---- 
-
 ## 1. Grid of τ values
 tau_grid <- seq(from = 0.001, to = 0.005, by = 0.0001)
 
