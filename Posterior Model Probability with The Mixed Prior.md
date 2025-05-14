@@ -5,7 +5,7 @@ $$y_{i,k}=\beta_{0,k}+\beta_{1,k}x_{i1,k}+\dots+\beta_{p,k}x_{ip,k}+\varepsilon_
  
 with independent random errors $\varepsilon_{i,k} \sim N(0, \sigma^{2})$ [^1]. Under this setup, let $&#x1D4DC;_ {\textrm{null},k}$ denote the null model that restricts $\beta_{0,k} \le 0$, and $&#120028;_ {\textrm{alt},k}$ denote the alternative model that restricts $\beta_{0,k} > 0$. Our goal is to compute the posterior probability of the null model, $\textrm{Pr}\(&#x1D4DC;_ {\textrm{null},k}|d_k)$, given the data $d_k$. 
 
-We place the non-informative (Jeffreys) prior on the slop coefficients $&#120631;_ {1:p,k} = (\beta_{1,k},\dots,\beta_{p,k})^\textrm{T}$ and the error variance $\sigma^{2}$
+We place the non-informative (Jeffreys) prior on the other coefficients $&#120631;_ {1:p,k} = (\beta_{1,k},\dots,\beta_{p,k})^\textrm{T}$ and the error variance $\sigma^{2}$
 
 $$\pi(\beta_{1:p,k},\sigma^{2}) \propto \frac{1}{\sigma^{2}}.$$
 
