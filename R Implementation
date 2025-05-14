@@ -5,27 +5,27 @@ df <- read_csv("USA_INVESTMENT_MONTHLY_VW_CAP_1963_2024.csv",
                col_types = cols())
 
 # ---- Define sample windows ----
-train_start <- 196307
-train_end   <- 199407
-test_start  <- 199408
-test_end    <- 202412
+original_start <- 196307
+original_end   <- 199407
+replication_start  <- 199408
+replication_end    <- 202412
 
 # ---- Original-sample variables (7/1963 to 7/1994) ----
 y_original <- df %>%
-  filter(date >= train_start, date <= train_end) %>%
+  filter(date >= original_start, date <= original_end) %>%
   pull(ret)
 
 X_original <- df %>%
-  filter(date >= train_start, date <= train_end) %>%
+  filter(date >= original_start, date <= original_end) %>%
   select(Mkt_RF, SMB, HML, RMW, CMA)
 
 # ---- Replication-sample variables (8/1994 to 12/2024) ----
 y_replication <- df %>%
-  filter(date >= test_start, date <= test_end) %>%
+  filter(date >= replication_start, date <= replication_end) %>%
   pull(ret)
 
 X_replication <- df %>%
-  filter(date >= test_start, date <= test_end) %>%
+  filter(date >= replication_start, date <= replication_end) %>%
   select(Mkt_RF, SMB, HML, RMW, CMA)
 
 # ---- Posterior Inference ----
