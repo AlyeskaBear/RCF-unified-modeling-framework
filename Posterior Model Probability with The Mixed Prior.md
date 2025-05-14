@@ -3,7 +3,7 @@ Consider a standard OLS regression model for data $d_k$ = \{ $y_{i,k},x_{i1,k},\
 
 $$y_{i,k}=\beta_{0,k}+\beta_{1,k}x_{i1,k}+\dots+\beta_{p,k}x_{ip,k}+\varepsilon_{i,k} \qquad (1)$$ 
  
-with independent random errors $\varepsilon_{i,k} \sim N(0, \sigma^{2})$. The assumption of independent model errors is not essential for our framework as models with more sophisticated assumptions on data dependence fit into this framework straightforwardly. Under this setup, let $&#x1D4DC;_ {\textrm{null},k}$ denote the null model that restricts $\beta_{0,k} \le 0$, and $&#120028;_ {\textrm{alt},k}$ denote the alternative model that restricts $\beta_{0,k} > 0$. Our goal is to compute the posterior probability of the null model, $\textrm{Pr}\(&#x1D4DC;_ {\textrm{null},k}|d_k)$, given the data $d_k$. 
+with independent random errors $\varepsilon_{i,k} \sim N(0, \sigma^{2})$ [^1]. Under this setup, let $&#x1D4DC;_ {\textrm{null},k}$ denote the null model that restricts $\beta_{0,k} \le 0$, and $&#120028;_ {\textrm{alt},k}$ denote the alternative model that restricts $\beta_{0,k} > 0$. Our goal is to compute the posterior probability of the null model, $\textrm{Pr}\(&#x1D4DC;_ {\textrm{null},k}|d_k)$, given the data $d_k$. 
 
 We place the non-informative (Jeffreys) prior on the slop coefficients $&#120631;_ {1:p,k} = (\beta_{1,k},\dots,\beta_{p,k})^\textrm{T}$ and the error variance $\sigma^{2}$
 
@@ -42,3 +42,5 @@ and
 The posterior probability of $&#x1D4DC;_ {\textrm{null},k}$ is 
 
 $$\text{Pr}(&#x1D4DC;_ {\textrm{null},k}|d_k)=\frac{\pi_\textrm{null}L(&#x1D4DC;_ {\textrm{null},k}|d_k)}{\pi_\textrm{null}L(&#x1D4DC;_ {\textrm{null},k}|d_k)+(1-\pi_\textrm{null})L(&#x1D4DC;_ {\textrm{alt},k}|d_k)}.$$
+
+[^1]: The assumption of independent model errors is not essential for our framework as models with more sophisticated assumptions on data dependence fit into this framework straightforwardly. 
