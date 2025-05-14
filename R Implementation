@@ -35,7 +35,7 @@ log_integrate <- function(f, lower, upper, rel.tol = 1e-12) {
   stats::integrate(g, lower, upper, rel.tol = rel.tol)$value
 }
 
-posterior_null_prob <- function(y, X, pi0 = 0.5, tau = 1) {
+posterior_null_prob <- function(y, X, pi_null = 0.5, tau = 1) {
   ## 1 — OLS estimates
   y <- as.vector(y);   X <- as.matrix(X)
   Xd <- cbind(1, X)                    # add intercept
@@ -56,25 +56,25 @@ posterior_null_prob <- function(y, X, pi0 = 0.5, tau = 1) {
   log_int_fun <- function(side) {
     function(b) log_tdens(b) + log_prior(b)          # log integrand
   }
-  E0 <- pi0 * log_integrate(log_int_fun("neg"), -Inf, 0)
-  E1 <- (1 - pi0) * log_integrate(log_int_fun("pos"), 0,  Inf)
+  E0 <- pi_null * log_integrate(log_int_fun("neg"), -Inf, 0)
+  E1 <- (1 - pi_null) * log_integrate(log_int_fun("pos"), 0,  Inf)
   
   ## 4 — posterior null probability
-  post_M0 <- E0 / (E0 + E1)
-  return(post_M0)
+  post_M_null <- E0 / (E0 + E1)
+  return(post_M_null)
 }
 
 ## posterior null probability - original sample
 posterior_null_prob(y=y_original, 
                     X=X_original, 
-                    pi0 = 0.5,
+                    pi_null = 0.5,
                     tau=0.0041)
 ## [1] 5.796415e-16
 
 ## posterior null probability - replication sample
 posterior_null_prob(y=y_replication, 
                     X=X_replication, 
-                    pi0 = 0.7,
+                    pi_null = 0.7,
                     tau=0.0041)
 ## [1] 0.08838085
 
@@ -83,39 +83,39 @@ posterior_null_prob(y=y_replication,
 tau_grid <- seq(from = 0.001, to = 0.005, by = 0.0001)
 
 ## 2. Vector of π_null values to examine
-pi0_grid <- c(0.30, 0.50, 0.70)
+pi_null_grid <- c(0.30, 0.50, 0.70)
 
 ## 3. Evaluate Pr(M0 | data) for every (π_null, τ) pair
 sensitivity_tau <- do.call(
   rbind,
-  lapply(pi0_grid, function(pp) {
+  lapply(pi_null_grid, function(pp) {
     post_vals <- sapply(
       tau_grid,
       function(tt)
         posterior_null_prob(
           y   = y_replication,
           X   = X_replication,
-          pi0 = pp,
+          pi_null = pp,
           tau = tt
         )
     )
     data.frame(
       tau     = tau_grid,
-      pi0     = pp,
-      post_M0 = post_vals
+      pi_null     = pp,
+      post_M_null = post_vals
     )
   })
 )
 
 ## 4. Inspect the combined data-frame
 head(sensitivity_tau)
-##      tau pi0    post_M0
+##      tau pi_null    post_M_null
 ## 1 0.0010 0.3 0.03154233
 ## 2 0.0011 0.3 0.02900435
 ## ...
 
 ## 'sensitivity_tau' now contains one row per τ–π_null combination
-## with columns: tau, pi0, post_M0
+## with columns: tau, pi_null, post_M_null
 
 ## ---------------------------------------------------------------------------
 ## Function :  plot_sensitivity_tau
@@ -123,28 +123,28 @@ head(sensitivity_tau)
 ##             three prior weights (π_null = 0.3, 0.5, 0.7)
 ## ---------------------------------------------------------------------------
 plot_sensitivity_tau <- function(df) {
-  stopifnot(all(c("tau", "pi0", "post_M0") %in% names(df)))
+  stopifnot(all(c("tau", "pi_null", "post_M_null") %in% names(df)))
   library(ggplot2)
   
   ## axis breaks (ensure 2.5 % and 1 % appear)
-  pretty_y  <- scales::pretty_breaks(n = 6)(df$post_M0)
+  pretty_y  <- scales::pretty_breaks(n = 6)(df$post_M_null)
   
-   y_breaks <- sort(unique(c(scales::pretty_breaks(n = 6)(df$post_M0),
-                           0.05, 0.025, 0.01)))
+  y_breaks <- sort(unique(c(scales::pretty_breaks(n = 6)(df$post_M_null),
+                            0.05, 0.025, 0.01)))
   
-  ggplot(df, aes(x = tau, y = post_M0, colour = as.factor(pi0))) +
+  ggplot(df, aes(x = tau, y = post_M_null, colour = as.factor(pi_null))) +
     geom_line(linewidth = 0.8) +
     ## reference lines ------------------------------------------------------
   geom_hline(yintercept = 0.05,
              linetype   = "dashed",
              colour     = "black") +
-  geom_hline(yintercept = 0.025,
-             linetype   = "dashed",
-             colour     = "black") +
+    geom_hline(yintercept = 0.025,
+               linetype   = "dashed",
+               colour     = "black") +
     geom_hline(yintercept = 0.01,
                linetype   = "dashed",
                colour     = "black") +
-  ## axes -----------------------------------------------------------------
+    ## axes -----------------------------------------------------------------
   scale_y_continuous(
     breaks = y_breaks,
     labels = scales::percent_format(accuracy = 0.1),
