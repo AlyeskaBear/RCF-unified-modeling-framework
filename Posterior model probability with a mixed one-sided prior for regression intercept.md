@@ -21,7 +21,7 @@ The full likelihood function for the model (1) conditioned on the data $d_k$ is
 
 <p align="center">$$L(\beta_{0,k}, &#120631;_ {1:p,k}, \sigma^2|d_k)=(2\pi\sigma^2)^{-n&#x2215;2}\textrm{exp}[-\frac{1}{2\sigma^2}(y_{.,k}-&#119831;[\beta_{0,k}, &#120631;_ {1:p,k}])^\textrm{T}(y_{.,k}-&#119831;[\beta_{0,k}, &#120631;_ {1:p,k}])] \qquad (2)$$,</p>
 
-where &#119831;=[**1**, &#119833;], with **1** is the column of ones (to accommodate $\beta_{0,k}$) and $&#119833;$ containing the $\mathit{p}$ covariates. Conditional on $\beta_{0,k}$, integrate the likelhood function (2) with respect to $&#120631;_ {1:p,k}$ and $\sigma^2$ under the Jeffreys prior to obtain the likelihood function for $\beta_{0,k}$  
+where &#119831;=[&#x1D7CF;, &#119833;], with &#x1D7CF; is the column of ones (to accommodate $\beta_{0,k}$) and $&#119833;$ containing the $\mathit{p}$ covariates. Integrate the likelhood function (2) with respect to $&#120631;_ {1:p,k}$ and $\sigma^2$ under the Jeffreys prior to obtain the likelihood function for $\beta_{0,k}$  
 
 $$L(\beta_{0,k}|d_k)=c[1+t^2(\beta_{0,k})/v]^{-\frac{v+1}{2}}$$
 
@@ -39,6 +39,6 @@ and
 
 <p align="center">$$L(&#x1D4DC;_ {\textrm{alt},k}|d_k) = \int_{0}^{\infty} L(\beta_{0,k}|d_k)2\tau^{-1}\phi(\beta_{0,k}&#x2215;\tau)d\beta_{0}$$.</p>
 
-Given the prior null probability $\pi_\textrm{null}$, the posterior probability of the null is 
+The posterior probability of $&#x1D4DC;_ {\textrm{null},k}$ is 
 
 $$\text{Pr}(&#x1D4DC;_ {\textrm{null},k}|d_k)=\frac{\pi_\textrm{null}L(&#x1D4DC;_ {\textrm{null},k}|d_k)}{\pi_\textrm{null}L(&#x1D4DC;_ {\textrm{null},k}|d_k)+(1-\pi_\textrm{null})L(&#x1D4DC;_ {\textrm{alt},k}|d_k)}.$$
