@@ -1,9 +1,9 @@
 # Model Setup
-Consider a standard OLS regression model for data $d_k$ = \{ $y_{i,k},x_{i1,k},\dots, x_{ip,k} $\} $_{i=1}^{n}$ defined by  
+Consider a standard OLS regression model for data $d_k$ = \{ $y_{i,k},x_{i1,k},\dots, x_{ip,k} $\} $_{i=1}^{n}$ in the $k$-th anomaly test of a replication study, defined by  
 
 $$y_{i,k}=\beta_{0,k}+\beta_{1,k}x_{i1,k}+\dots+\beta_{p,k}x_{ip,k}+\varepsilon_{i,k} \qquad (1)$$ 
  
-with independent random errors $\varepsilon_{i,k} \sim N(0, \sigma^{2})$ <sup id="fn1"><a href="#f1">1</a></sup>. Under this setup, let $&#x1D4DC;_ {\textrm{null},k}$ denote the null model that restricts $\beta_{0,k} \le 0$, and $&#120028;_ {\textrm{alt},k}$ denote the alternative model that restricts $\beta_{0,k} > 0$. Our goal is to compute the posterior probability of the null model, $\textrm{Pr}\(&#x1D4DC;_ {\textrm{null},k}|d_k)$, given the data $d_k$. 
+with independent residual errors $\varepsilon_{i,k} \sim N(0, \sigma^{2})$ <sup id="fn1"><a href="#f1">1</a></sup>. Under this setup, let $&#x1D4DC;_ {\textrm{null},k}$ denote the null model that restricts $\beta_{0,k} \le 0$, and $&#120028;_ {\textrm{alt},k}$ denote the alternative model that restricts $\beta_{0,k} > 0$. Our goal is to compute the posterior probability of the null model, $\textrm{Pr}\(&#x1D4DC;_ {\textrm{null},k}|d_k)$, given the data $d_k$. 
 
 We place the non-informative (Jeffreys) prior on the other coefficients $&#120631;_ {1:p,k} = (\beta_{1,k},\dots,\beta_{p,k})^\textrm{T}$ and the error variance $\sigma^{2}$
 
