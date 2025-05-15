@@ -33,11 +33,11 @@ Here, $t(\beta_{0,k})$ is the usual *t*-statistic and $\text{SE}(\hat\beta_{0,k}
 
 Then, we compute the likelihood under each sub-model, $L(&#x1D4DC;_ {\textrm{null},k}|d_k)$ and $L(&#x1D4DC;_ {\textrm{alt},k}|d_k)$, by integrating $L(\beta_{0,k}|d_k)$ over the half-normal prior on the restricted domain of $\beta_{0,k}$ for each model, respectively,
 
-$$L(&#x1D4DC;_ {\textrm{null},k}|d_k) = \int_{-\infty}^{0} L(\beta_{0,k}|d_k)2\tau^{-1}\phi(\beta_{0,k}&#x2215;\tau)d\beta_{0}$$
+$$L(&#x1D4DC;_ {\textrm{null},k}|d_k) = \int_{-\infty}^{0} L(\beta_{0,k}|d_k)2\tau^{-1}\phi(\beta_{0,k}&#x2215;\tau)d\beta_{0,k}$$
 
 and
 
-<p align="center">$$L(&#x1D4DC;_ {\textrm{alt},k}|d_k) = \int_{0}^{\infty} L(\beta_{0,k}|d_k)2\tau^{-1}\phi(\beta_{0,k}&#x2215;\tau)d\beta_{0}$$.</p>
+<p align="center">$$L(&#x1D4DC;_ {\textrm{alt},k}|d_k) = \int_{0}^{\infty} L(\beta_{0,k}|d_k)2\tau^{-1}\phi(\beta_{0,k}&#x2215;\tau)d\beta_{0,k}$$.</p>
 
 The posterior probability of $&#x1D4DC;_ {\textrm{null},k}$ is 
 
