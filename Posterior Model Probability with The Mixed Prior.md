@@ -7,7 +7,7 @@ with independent random errors $\varepsilon_{i,k} \sim N(0, \sigma^{2})$ <sup id
 
 We place the non-informative (Jeffreys) prior on the other coefficients $&#120631;_ {1:p,k} = (\beta_{1,k},\dots,\beta_{p,k})^\textrm{T}$ and the error variance $\sigma^{2}$
 
-$$\pi(\beta_{1:p,k},\sigma^{2}) \propto \frac{1}{\sigma^{2}}.$$
+$$\pi(&#120631;_ {1:p,k},\sigma^{2}) \propto \frac{1}{\sigma^{2}}.$$
 
 For $\beta_{0,k}$, we use a mixed one-sided prior that encodes a belief about its sign 
 
