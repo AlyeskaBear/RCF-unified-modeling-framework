@@ -175,5 +175,5 @@ plot_sensitivity_tau <- function(df) {
     )
 }
 
-plt <- plot_sensitivity_tau(sensitivity_tau)
-print(plt)
+Figure1 <- plot_sensitivity_tau(sensitivity_tau)
+print(Figure1)
