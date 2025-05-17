@@ -19,7 +19,7 @@ where $\phi(\cdot)$ is the standard normal distribution <sup id="fn1"><a href="#
 
 The full likelihood function for the model (1) conditioned on the data $d_k$ is
 
-<p align="center">$$L(\beta_{0,k}, &#120631;_ {1:p,k}, \sigma^2|d_k)=(2\pi\sigma^2)^{-n&#x2215;2}\textrm{exp}[-\frac{1}{2\sigma^2}(&#x1D432;-&#119831;[\beta_{0,k}, &#120631;_ {1:p,k}])^\textrm{T}(&#x1D432;-&#119831;[\beta_{0,k}, &#120631;_ {1:p,k}])] \qquad (2)$$,</p>
+<p align="center">$$L(\beta_{0,k}, &#120631;_ {1:p,k}, \sigma^2|d_k)=(2\pi\sigma^2)^{-n&#x2215;2}\textrm{exp}[-\frac{1}{2\sigma^2}(&#x1D432;-&#119831;[\beta_{0,k}, &#120631;_ {1:p,k}])^{\top}(&#x1D432;-&#119831;[\beta_{0,k}, &#120631;_ {1:p,k}])] \qquad (2)$$,</p>
 
 where $&#x1D432;$ = \{ $y_{1,k},\dots, y_{n,k} $\} $^\textrm{T}$, &#119831;=[&#x1D7CF;, &#119833;] with &#x1D7CF; being the column of ones (to accommodate $\beta_{0,k}$) and $&#119833;$ containing the $\mathit{p}$ covariates. Integrate the likelhood function (2) with respect to $&#120631;_ {1:p,k}$ and $\sigma^2$ under the Jeffreys prior to obtain the likelihood function for $\beta_{0,k}$  
 
@@ -27,7 +27,7 @@ $$L(\beta_{0,k}|d_k)=c[1+t^2(\beta_{0,k})/v]^{-\frac{v+1}{2}}$$
 
 where 
 
-$$t(\beta_{0,k})=\frac{\beta_{0,k}-\hat\beta_{0,k}}{\text{SE}(\hat\beta_{0,k})}, \qquad \nu=n-p-1, \qquad c=\frac{\Gamma(\frac{v+1}{2})}{\Gamma(\frac{v}{2})\sqrt{\pi v}\text{SE}(\hat\beta_{0,k})}.$$
+$$t(\beta_{0,k})=\frac{\beta_{0,k}-\hat\beta_{0,k}}{\text{SE}(\hat\beta_{0,k})}, \qquad \nu=n-p-1, \qquad c=\frac{\Gamma(\frac{\nu+1}{2})}{\Gamma(\frac{\nu}{2})\sqrt{\pi \nu}\text{SE}(\hat\beta_{0,k})}(2\pi)^{-\nu/2} |&#119833; ^{\top} &#119833;|^{-1/2}.$$
 
 Here, $t(\beta_{0,k})$ is the usual *t*-statistic and $\text{SE}(\hat\beta_{0,k})$ is the standard error of the OLS estimate $\hat\beta_{0,k}$. Consequently, $L(\beta_{0,k}|d_k)$ is (up to the constant *c*) the Student *t*-distribution of $\beta_{0,k}$ with $\nu$ degrees of freedom, centered at $\hat\beta_{0,k}$ and having scale $\text{SE}(\hat\beta_{0,k})$.
 
