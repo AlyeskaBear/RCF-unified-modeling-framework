@@ -156,7 +156,7 @@ plot_sensitivity_tau <- function(df) {
     ) +
     ## legend & labels ------------------------------------------------------
   scale_colour_manual(
-    values = c("0.3" = "#0072B2", "0.5" = "#D55E00", "0.7" = "#009E73"),
+    values = c("0.3" = "black", "0.5" = "orange", "0.7" = "green"),
     name   = expression(pi[null])
   ) +
     labs(
