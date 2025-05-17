@@ -1,6 +1,6 @@
 # Replication Crisis in Finance?  
 ## A Unified Modeling Framework for Reconciling Pessimism and Optimism  
-*Supplementary Materials Repository for The Empirical Demonstration*
+*Supplementary Materials Repository for Section 4 Empirical Demonstration*
 
 ---
 
