@@ -1,6 +1,7 @@
-require("tidyverse")
+require("tidyverse", "ggplot2")
 
 # ---- Read the data ----
+library(tidyverse)
 df <- read_csv("USA_INVESTMENT_MONTHLY_VW_CAP_1963_2024.csv",
                col_types = cols())
 
@@ -156,7 +157,7 @@ plot_sensitivity_tau <- function(df) {
     ) +
     ## legend & labels ------------------------------------------------------
   scale_colour_manual(
-    values = c("0.3" = "black", "0.5" = "orange", "0.7" = "green"),
+    values = c("0.3" = "grey70", "0.5" = "grey45", "0.7" = "black"),
     name   = expression(pi[null])
   ) +
     labs(
