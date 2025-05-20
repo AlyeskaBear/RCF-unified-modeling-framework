@@ -5,6 +5,12 @@ library(tidyverse)
 df <- read_csv("USA_INVESTMENT_MONTHLY_VW_CAP_1963_2024.csv",
                col_types = cols())
 
+## Y: capped, value-weighted monthly returns of investment-theme portfolios on the U.S. market
+
+## X: monthly series for the five Fama–French benchmark factors: MKT − RF, SMB, HML, RMW, and CMA.
+
+## Anomaly performance metric: model-adjusted intercept (alpha/abnormal return)
+
 # ---- Define sample windows ----
 original_start <- 196307
 original_end   <- 199407
