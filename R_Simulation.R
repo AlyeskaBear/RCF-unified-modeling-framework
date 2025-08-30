@@ -4,7 +4,7 @@ m_tests    <- 10000    # number of tests
 pi0_true   <- 0.60     # true null fraction (fixed)
 rho_eq     <- 0.30     # equicorrelation
 df_t       <- 360      # degrees of freedom for t
-delta_alt  <- 1.50     # noncentral shift for true positives (weak/moderate)
+delta_alt  <- 1.50     # noncentral shift for true positives (weak)
 seed_sim   <- 123      # random seed
 
 bayes_lambda <- 0.05                 # posterior-null threshold
