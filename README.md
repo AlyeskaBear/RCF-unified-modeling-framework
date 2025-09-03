@@ -8,7 +8,7 @@
 
 | File | Description |
 |------|-------------|
-| **The Prior-Informed Modeling Framework *versus* Data-Driven, Machine-Learning Approaches** | A fuller discussion of how incorporating an explicit prior-skepticism parameter improves on data-driven machine-learning approaches by addressing data-snooping, dependence, and implementability limits in anomaly testing   |
+| **The Prior-Informed Modeling Framework *versus* Data-Driven, Machine-Learning Approaches** | A fuller discussion of how incorporating an explicit prior-skepticism parameter improves on data-driven， machine-learning approaches by addressing data-snooping, dependence, and implementability limits in anomaly testing   |
 | **Comparing The Bayesian and Frequentist Procedures for False Discovery Control: A Simulation Study** |Documentation of a simulation study showing that the Bayesian procedure in our framework is less conservative and yields more discoveries than frequentist benchmarks while maintaining comparable or lower false discovery rates   |
 | **Posterior Model Probability with the Mixed Prior** | Mathematical derivations underlying the modeling framework for the empirical example |
 | **USA_INVESTMENT_MONTHLY_VW_CAP** | U.S. investment-theme portfolios (capped, value-weighted monthly returns) — **Jan 1931 – Dec 2024**; sourced from <a href="https://jkpfactors.com/factor-returns" target="_blank">Global Factor Data</a>. |
